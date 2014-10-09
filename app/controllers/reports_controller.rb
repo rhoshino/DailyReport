@@ -42,8 +42,8 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(params[:report])
-
+    #@report = Report.new(params[:report])
+    @report = current_user.reports.new(params[:report])
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }

@@ -10,12 +10,14 @@
   <tr>
     <th>タイトル</th>
     <th>本文(これはのちのち外す)</th>
+    <th>著者ID</th>
   </tr>
 
   <% @reports.each do |report| %>
     <tr>
       <td><%= report.reportTitle %></td>
       <td><%= report.reportBodyText %></td>
+      <td><%= report.user_id %></td>
 
       <td><%= link_to 'Show', report %></td>
       <td><%= link_to 'Edit', edit_report_path(report) %></td>
