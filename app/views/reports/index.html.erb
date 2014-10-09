@@ -1,6 +1,5 @@
+#coding:utf-8
 <h1>日報のリスト</h1>
-
-
 
 <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
@@ -8,20 +7,35 @@
 
 <table>
   <tr>
+    <th>日報ID</th>
     <th>タイトル</th>
     <th>本文(これはのちのち外す)</th>
     <th>著者ID</th>
+    <th>著者名</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>あなた？</th>
   </tr>
 
   <% @reports.each do |report| %>
     <tr>
-      <td><%= report.reportTitle %></td>
-      <td><%= report.reportBodyText %></td>
+      <td><%= report.id%></td>
+      <td><%= report.report_title %></td>
+      <td><%= report.report_body_text %></td>
       <td><%= report.user_id %></td>
+      <!--<td><%= User.find(report.user_id).name %></td>-->
+      <td><%= report.user.name %></td>
 
       <td><%= link_to 'Show', report %></td>
       <td><%= link_to 'Edit', edit_report_path(report) %></td>
       <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%if current_user.id == report.user_id %>
+            <%= "はい"%>
+          <%else%>
+             <%= "いいえ"%>
+          <%end%>
+      </td>
     </tr>
   <% end %>
 </table>

@@ -14,16 +14,14 @@
 ActiveRecord::Schema.define(:version => 20141009045839) do
 
   create_table "reports", :force => true do |t|
-    t.string   "reportTitle"
-    t.text     "reportBodyText"
-    t.date     "reportDate"
-    t.integer  "reportAuthorID"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "report_title"
+    t.text     "report_body_text"
+    t.date     "report_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "user_id"
   end
 
-  add_index "reports", ["reportAuthorID"], :name => "index_reports_on_reportAuthorID"
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "users", :force => true do |t|

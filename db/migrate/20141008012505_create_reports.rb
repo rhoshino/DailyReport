@@ -1,14 +1,11 @@
 class CreateReports < ActiveRecord::Migration
   def change
     create_table :reports do |t|
-      t.string :reportTitle
-      t.text :reportBodyText
-      t.date :reportDate
-
-      t.integer :reportAuthorID
+      t.string :report_title
+      t.text :report_body_text
+      t.date :report_date
 
       t.timestamps
     end
-     add_index :reports, :reportAuthorID
   end
 end

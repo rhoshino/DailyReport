@@ -1,10 +1,15 @@
+#coding:utf-8
 class ReportsController < ApplicationController
 
   # GET /reports
   # GET /reports.json
+  #@users = User.all
   def index
     @reports = Report.all
-
+    # @reports = Report.where(:user_id => current_user)
+    # @user = params[:user_id] ? User.find(params[:user_id]) : current_user
+    # @reports = @user.reports
+    # @reports = current_user.reports
     respond_to do |format|
 
       format.html # index.html.erb
@@ -26,8 +31,8 @@ class ReportsController < ApplicationController
   # GET /reports/new
   # GET /reports/new.json
   def new
-    @report = Report.new
-
+    #@report = Report.new({:reportTitle => "こんにちは",:user_id => current_user})
+    @report = Report.new()
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @report }
@@ -44,6 +49,7 @@ class ReportsController < ApplicationController
   def create
     #@report = Report.new(params[:report])
     @report = current_user.reports.new(params[:report])
+    # @report = Report.new(params[:report].merge(params[:user_id]))
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -78,7 +84,7 @@ class ReportsController < ApplicationController
     @report.destroy
 
     respond_to do |format|
-      format.html { redirect_to reports_url }
+      format.html { redirect_to reports_path }
       format.json { head :no_content }
     end
   end
