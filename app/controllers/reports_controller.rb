@@ -5,11 +5,11 @@ class ReportsController < ApplicationController
   # GET /reports.json
   #@users = User.all
   def index
-    @reports = Report.all
+    # @reports = Report.all
     # @reports = Report.where(:user_id => current_user)
     # @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     # @reports = @user.reports
-    # @reports = current_user.reports
+     @reports = current_user.reports
     respond_to do |format|
 
       format.html # index.html.erb

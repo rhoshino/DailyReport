@@ -11,7 +11,14 @@
     </div>
   <% end %>
 
-
+  <div class="date_field">
+    <%= f.label "報告日付" %><br />
+    <%= f.date_select(
+        :report_date,
+        use_month_numbers: true,
+        start_year: 2014,
+        default: Date.today() )%>
+  </div>
 
   <div class="field">
     <%= f.label "題名" %><br />
