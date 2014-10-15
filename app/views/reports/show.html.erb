@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Date:</b>
+  <%= @report.report_date %>
+</p>
+
+<p>
   <b>Title:</b>
   <%= @report.report_title %>
 </p>
 
 <p>
-  <b>WorkTime - start:</b>
-  <%= @report.worktime.start_time %>
+  <% @report.worktimes.each do |w| %>
+    <b>Worktime</b>
+    <p>Start_Time : <%=w.start_time.strftime('%H:%M')%></p>
+    <p>End_Time   : <%=w.end_time.strftime('%H:%M')%></p>
+    <b>Resttime</b>
+    <p>Rest_Time   : <%=w.rest_time.strftime('%H:%M')%></p>
+  <%end%>
 </p>
 
 

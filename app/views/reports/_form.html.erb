@@ -21,10 +21,15 @@
         default: Date.today() )%>
   </div>
 
-  <%= f.fields_for :worktime do |w|%>
+  <%= f.fields_for :worktimes do |w|%>
   <div class = "work_time_field">
-    <%= w.label "労働時間"%>
+    <%= w.label "労働開始時間"%>
     <%= w.time_select :start_time %>
+    <%= w.label "労働終了時間"%>
+    <%= w.time_select :end_time %>
+    <br>
+    <%= w.label "休憩時間"%>
+    <%= w.time_select :rest_time ,{minute_step: 5}%>
   </div>
   <% end %>
 

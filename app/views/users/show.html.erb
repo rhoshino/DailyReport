@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>ID:</b>
+  <%= @user.id %>
+</p>
+
+<p>
+  <b>Admin?:</b>
+  <%= @user.admin? %>
+</p>
+
+<p>
+  送信先アドレス集を実装予定
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -5,6 +5,8 @@ TestReport::Application.routes.draw do
 
 
   devise_for :users
+
+  resources :users
   root :to => "reports#index"
 
   # The priority is based upon order of creation:

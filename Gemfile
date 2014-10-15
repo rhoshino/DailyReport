@@ -7,7 +7,7 @@ gem 'rails', '3.2.15'
 
 gem 'pg'
 gem 'devise'
-
+gem 'cancan'
 
 group :development do
   gem "rails-erd"

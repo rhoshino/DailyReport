@@ -1,3 +1,3 @@
 class Resttime < Timespan
-  belongs_to :report
+  #belongs_to :report
 end

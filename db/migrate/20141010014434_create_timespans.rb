@@ -4,6 +4,7 @@ class CreateTimespans < ActiveRecord::Migration
       t.integer :report_id
       t.time :start_time
       t.time :end_time
+      t.time :rest_time
       t.string :type
       t.timestamps
     end

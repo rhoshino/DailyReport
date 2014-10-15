@@ -5,11 +5,12 @@ class ReportsController < ApplicationController
   # GET /reports.json
   #@users = User.all
   def index
+    # TODO: current_user.role.typeとかで表示を分岐
     # @reports = Report.all
     # @reports = Report.where(:user_id => current_user)
     # @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     # @reports = @user.reports
-     @reports = current_user.reports
+    @reports = current_user.reports
     respond_to do |format|
 
       format.html # index.html.erb
@@ -33,6 +34,7 @@ class ReportsController < ApplicationController
   def new
     #@report = Report.new({:reportTitle => "こんにちは",:user_id => current_user})
     @report = Report.new()
+    @report.worktimes.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @report }
