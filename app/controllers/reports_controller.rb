@@ -49,6 +49,8 @@ class ReportsController < ApplicationController
   def create
     #@report = Report.new(params[:report])
     @report = current_user.reports.new(params[:report])
+    #@report.build_worktime
+    #@worktime = Worktime.new()
     # @report = Report.new(params[:report].merge(params[:user_id]))
     respond_to do |format|
       if @report.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141009045839) do
+ActiveRecord::Schema.define(:version => 20141010014434) do
 
   create_table "reports", :force => true do |t|
     t.string   "report_title"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20141009045839) do
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
+
+  create_table "timespans", :force => true do |t|
+    t.integer  "report_id"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
