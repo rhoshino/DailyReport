@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141010014434) do
+ActiveRecord::Schema.define(:version => 20141016015136) do
 
   create_table "reports", :force => true do |t|
     t.string   "report_title"
     t.text     "report_body_text"
     t.date     "report_date"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "user_id"
+    t.boolean  "public_flag",      :default => false
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"

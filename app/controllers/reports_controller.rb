@@ -10,12 +10,24 @@ class ReportsController < ApplicationController
     # @reports = Report.where(:user_id => current_user)
     # @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     # @reports = @user.reports
-    @reports = current_user.reports
+    #@reports = current_user.reports
+
+    @reports = current_user.reports.where("public_flag = 'true'")
     respond_to do |format|
 
       format.html # index.html.erb
       format.json { render json: @reports }
     end
+  end
+
+  def list
+
+      @reports = Report.all
+      respond_to do |format|
+
+        format.html # index.html.erb
+        format.json { render json: @reports }
+      end
   end
 
   # GET /reports/1

@@ -11,7 +11,10 @@
       </ul>
     </div>
   <% end %>
+  <div>
 
+
+  </div>
   <div class="date_field">
     <%= f.label "報告日付" %><br />
     <%= f.date_select(
@@ -41,6 +44,10 @@
   <div class="field">
     <%= f.label "本文" %><br />
     <%= f.text_area :report_body_text %>
+  </div>
+  <div class="field">
+    <%= f.label "公開フラグ" %><br />
+    <%= f.check_box :public_flag, {}, true, false %>
   </div>
 
   <div class="actions">

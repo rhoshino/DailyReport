@@ -2,7 +2,7 @@ TestReport::Application.routes.draw do
 
 
   resources :reports
-
+  match '/reportslist', to: 'reports#list'
 
   devise_for :users
 

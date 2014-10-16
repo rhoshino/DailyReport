@@ -8,7 +8,11 @@
     ユーザーの名前[ <%="#{current_user.name}"%> ]
     E-mail:[<%="#{current_user.email}"%>] <br>
 
-    <%= link_to "User list", users_path%>
+    <%= link_to "Your Report", reports_path%>
+    <% if current_user.admin? %>
+        <%= link_to "Report List", reportslist_path%>
+        <%= link_to "User list", users_path%>
+    <% end %>
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <br>
 ------------------------------------------------------
