@@ -8,6 +8,8 @@ class Report < ActiveRecord::Base
 
   accepts_nested_attributes_for :worktimes
 
+  validates :report_title, :report_body_text, presence: true
+
   def public_flag?
       public_flag == true
   end
