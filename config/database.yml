@@ -51,5 +51,5 @@ production:
   encoding: unicode
   database: testReport_production
   pool: 5
-  username: testReport
-  password:
+  username: postgres
+  password: psas

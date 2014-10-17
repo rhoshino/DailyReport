@@ -13,6 +13,10 @@ group :development do
   gem "rails-erd"
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,7 +30,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+ruby '1.9.3'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
