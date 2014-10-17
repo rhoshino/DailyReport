@@ -9,10 +9,12 @@
     E-mail:[<%="#{current_user.email}"%>] <br>
 
     <%= link_to "Your Report", reports_path%>
+    <%= link_to "Your Mounth Report", mounthreport_path%><!--#TODO: create -->
     <% if current_user.admin? %>
-        <%= link_to "Report List", reportslist_path%>
-        <%= link_to "User list", users_path%>
+        <%= link_to "Report List(Admin)", reportslist_path%>
+        <%= link_to "User list(Admin)", users_path%>
     <% end %>
+    <br>
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <br>
 ------------------------------------------------------

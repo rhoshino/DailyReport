@@ -3,6 +3,7 @@ TestReport::Application.routes.draw do
 
   resources :reports
   match '/reportslist', to: 'reports#list'
+  match '/mounthreport', to: 'reports#mounth'
 
   devise_for :users
 

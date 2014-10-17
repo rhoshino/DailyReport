@@ -10,9 +10,9 @@ class ReportsController < ApplicationController
     # @reports = Report.where(:user_id => current_user)
     # @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     # @reports = @user.reports
-    #@reports = current_user.reports
+    @reports = current_user.reports
 
-    @reports = current_user.reports.where("public_flag = 'true'")
+    #@reports = current_user.reports.where("public_flag = 'true'")
     respond_to do |format|
 
       format.html # index.html.erb
@@ -23,6 +23,15 @@ class ReportsController < ApplicationController
   def list
 
       @reports = Report.all
+      respond_to do |format|
+
+        format.html # index.html.erb
+        format.json { render json: @reports }
+      end
+  end
+  def mounth
+
+      @reports = current_user.reports.where("public_flag = 'true'")
       respond_to do |format|
 
         format.html # index.html.erb
@@ -68,6 +77,7 @@ class ReportsController < ApplicationController
     # @report = Report.new(params[:report].merge(params[:user_id]))
     respond_to do |format|
       if @report.save
+        ApplicationController.helpers.sending_report_submit(@report.user,@report)
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.json { render json: @report, status: :created, location: @report }
       else
@@ -84,6 +94,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.update_attributes(params[:report])
+        ApplicationController.helpers.sending_report_submit(@report.user,@report)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { head :no_content }
       else

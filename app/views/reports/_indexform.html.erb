@@ -12,6 +12,7 @@
 
 <table>
   <tr>
+    <th>公開</th>
     <th>日報ID</th>
     <th>報告日付</th>
     <th>タイトル</th>
@@ -26,6 +27,7 @@
 
   <% @reports.each do |report| %>
     <tr>
+      <td><%= report.public_flag? ? "O" : "X"%></td>
       <td><%= report.id%></td>
       <td><%= report.report_date%></td>
       <td><%= report.report_title %></td>
