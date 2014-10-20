@@ -8,6 +8,8 @@ TestReport::Application.routes.draw do
   devise_for :users
 
   resources :users
+
+  #Tentatively This work
   match '/your_page', to: 'users#you'
 
 

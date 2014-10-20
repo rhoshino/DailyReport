@@ -1,5 +1,10 @@
 #coding:utf-8
 <%= render 'showform' %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+<% if @user.admin? %>
+  <%= link_to 'Back', users_path %>
+<% else%>
+  <%= link_to 'Back', your_page_path %>
+<% end %>
+

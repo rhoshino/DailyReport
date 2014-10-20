@@ -8,6 +8,9 @@ class Ability
         can :manage, :all
     else
         can :you ,User
+        can :show, User
+        can :edit, User , :id => user.id
+
      end
     # Define abilities for the passed in user here. For example:
     #

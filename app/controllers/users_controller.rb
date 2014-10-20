@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def you
-    #@user = User.find(params[:id])
     @user = current_user
     respond_to do |format|
       format.html # you.html.erb
