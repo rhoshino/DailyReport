@@ -11,6 +11,8 @@ gem 'cancan'
 
 group :development do
   gem "rails-erd"
+  gem "pry-rails"
+  gem 'debugger'
 end
 
 group :production do

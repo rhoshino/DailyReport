@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20141017032510) do
     t.datetime "updated_at",                                 :null => false
     t.string   "name"
     t.string   "role",                   :default => "user"
-    t.text     "send_adress"
+    t.text     "send_address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

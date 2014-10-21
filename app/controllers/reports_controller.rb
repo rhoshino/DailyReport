@@ -77,7 +77,9 @@ class ReportsController < ApplicationController
     # @report = Report.new(params[:report].merge(params[:user_id]))
     respond_to do |format|
       if @report.save
+
         ApplicationController.helpers.sending_report_submit(@report.user,@report)
+
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
         format.json { render json: @report, status: :created, location: @report }
       else
@@ -94,7 +96,9 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.update_attributes(params[:report])
+
         ApplicationController.helpers.sending_report_submit(@report.user,@report)
+
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { head :no_content }
       else

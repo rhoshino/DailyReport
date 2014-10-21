@@ -3,7 +3,8 @@ module ReportsHelper
     @user = user
     @report = report
 
-    if report.public_flag?
+
+    if report.public_flag? && @user.send_address != nil
       @mail = ReportMail.report_submitted(user).deliver
     end
   end
