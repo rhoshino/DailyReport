@@ -13,4 +13,5 @@ class Report < ActiveRecord::Base
   def public_flag?
       public_flag == true
   end
+
 end
