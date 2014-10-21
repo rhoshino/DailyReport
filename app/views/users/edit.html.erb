@@ -6,7 +6,7 @@
 
 <%= link_to 'Show', @user %>
 
-<% if @user.admin? %>
+<% if current_user.admin? %>
   <%= link_to 'Back', users_path %>
 <% else%>
   <%= link_to 'Back', your_page_path %>

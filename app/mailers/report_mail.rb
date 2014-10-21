@@ -12,7 +12,8 @@ class ReportMail < ActionMailer::Base
     @user = user
     #TODO: user.email
     #mail(:to => user.email, :subject => "#{user.name}の日報が提出されました")
-    mail :to => "temp_dailyreport@sending.to",
+    mail :to => user.send_adress,
           :subject => "#{user.name}の日報が提出されました"
   end
+
 end
