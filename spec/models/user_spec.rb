@@ -49,4 +49,10 @@ describe User do
       end
     end
   end
+
+  #ファクトリ-をつかう
+  it "has a valid factory" do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
+
 end
