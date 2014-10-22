@@ -1,3 +1,7 @@
-ReportMail#report_submitted
 
-<%= @greeting %>, find me in app/views/app/views/report_mail/report_submitted.text.erb
+件名: <%= @report.report_title%>
+
+本文:
+<%= @report.report_body_text %>
+
+send by 日報アプリ

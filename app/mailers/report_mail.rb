@@ -7,9 +7,10 @@ class ReportMail < ActionMailer::Base
   #
   #   en.report_mail.report_submitted.subject
   #
-  def report_submitted(user)
+  def report_submitted(user,report)
     @greeting = "Hi"
     @user = user
+    @report = report
     #TODO: user.email
     #mail(:to => user.email, :subject => "#{user.name}の日報が提出されました")
 

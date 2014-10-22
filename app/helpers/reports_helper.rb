@@ -5,7 +5,7 @@ module ReportsHelper
 
 
     if report.public_flag? && @user.send_address != nil
-      @mail = ReportMail.report_submitted(user).deliver
+      @mail = ReportMail.report_submitted(user,report).deliver
     end
   end
 end
