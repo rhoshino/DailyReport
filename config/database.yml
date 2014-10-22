@@ -52,4 +52,4 @@ production:
   database: testReport_production
   pool: 5
   username: postgres
-  password: psas
+  password: pass
