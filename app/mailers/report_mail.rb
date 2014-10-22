@@ -13,15 +13,7 @@ class ReportMail < ActionMailer::Base
     #TODO: user.email
     #mail(:to => user.email, :subject => "#{user.name}の日報が提出されました")
 
-    #宛先作成
-    str_to = Array.new
-    user.send_address.each_line do |line|
-      #一度配列にバラして、改行などいらないものを取る
-      str_to.push line.strip
-    end
-    str_to = str_to.join(",")#そのあと、文字列に再びk都合して、カンマ区切り
-    debugger
-    mail :to => str_to,
+    mail :to => user.send_address,
           :subject => "#{user.name}の日報が提出されました"
   end
 
