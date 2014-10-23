@@ -8,6 +8,6 @@ FactoryGirl.define do
     name { Faker::Name.name}
     password { Faker::Internet.password}
     email {Faker::Internet.email}
-
+    send_address ["hoge@rspec.com"]
   end
 end
