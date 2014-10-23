@@ -1,9 +1,12 @@
 #coding:utf-8
+
+require 'faker'
+
 FactoryGirl.define do
   factory :user do
-    name "John Doe"
-    password "maid_in_factory"
-    sequence(:email){|n| "johndoe#{n}@example.com"}
+    name { Faker::Name.name}
+    password { Faker::Internet.password}
+    email {Faker::Internet.email}
 
   end
 end
