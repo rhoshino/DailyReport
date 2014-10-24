@@ -1,0 +1,9 @@
+#coding:utf-8
+
+<%if signed_in? %>
+  <hr>
+  <p>各種情報</p>
+  <%s = calc_time %>
+  今月の労働時間 : <%= s[:hour]%> 時間 <%= s[:minute]%> 分
+
+<% end  %>

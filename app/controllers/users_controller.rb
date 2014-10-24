@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   # PUT /reports/1.json
   def update
     @user = User.find(params[:id])
+    user.saved_send_address
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'Report was successfully updated.' }

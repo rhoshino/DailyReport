@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validate :multi_send_address_is_collect_format_or_null
 
   #データベースに登録前、送信先アドレスを加工する
-  before_save :saved_send_address
+  #before_save :saved_send_address
 
   def admin?
      role == "admin"
