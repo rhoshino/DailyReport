@@ -1,3 +1,4 @@
+#coding:utf-8
 module ReportsHelper
   def sending_report_submit(user,report)
     @user = user
