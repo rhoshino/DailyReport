@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   #before_save :saved_send_address
 
   def admin?
-     role == "admin"
+     role == "admin" #これ定数で呼び出ししたかったなあ
   end
 
   #送信先アドレスの加工と保存(※バリデーション済み)

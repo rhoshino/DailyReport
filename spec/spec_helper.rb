@@ -6,7 +6,7 @@ require 'rspec/autorun'
 
 require 'email_spec'
 
-
+require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -43,4 +43,8 @@ RSpec.configure do |config|
   #to Mail test
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+
+  #Controller test
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 end
