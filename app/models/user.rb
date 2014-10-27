@@ -35,8 +35,11 @@ class User < ActiveRecord::Base
     #配列の初期化
     send_address.clear
     #各要素ずつpush
-    temp_text.each_line do |line|
-        send_address.push line.strip
+    unless temp_text == nil
+      debugger
+      temp_text.each_line do |line|
+          send_address.push line.strip
+      end
     end
   end
 
