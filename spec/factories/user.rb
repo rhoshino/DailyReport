@@ -11,3 +11,4 @@ FactoryGirl.define do
     send_address ["hoge@rspec.com"]
   end
 end
+
