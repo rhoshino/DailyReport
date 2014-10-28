@@ -2,21 +2,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @user.name %>
+  <dev class = "show_head">
+    <b>Name:</b>
+    <%= @user.name %>
+  </dev>
 </p>
 
 <p>
-  <b>ID:</b>
-  <%= @user.id %>
+  <dev class = "show_head">
+    <b>ID:</b>
+    <%= @user.id %>
+  </dev>
 </p>
 
 <p>
-  <b>Admin?:</b>
-  <%= @user.admin? %>
+  <dev class = "show_head">
+    <b>Admin権限:</b>
+    <%= @user.admin? %>
+  </dev>
 </p>
 
 <p>
-  <b>送信先アドレス</b>
-  <%= @user.send_address %>
+  <dev class = "show_head">
+    <b>送信先アドレス</b>
+    <%= @user.send_address %>
+  </dev>
 </p>
