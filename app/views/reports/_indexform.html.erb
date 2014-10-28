@@ -1,16 +1,18 @@
 #coding:utf-8
+<%= stylesheet_link_tag "list_page", :media => "all" %>
+
 <h1>日報のリスト</h1>
 
 <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% end %>
 
-<% if current_user.admin? %>
+<% if current_user.admin? && Rails.env.development? %>
   <br>
   あなたはAdminです
 <% end %>
 
-<table>
+<table class = "test1">
   <tr>
     <th>公開</th>
     <th>日報ID</th>
@@ -36,9 +38,9 @@
       <!--<td><%= User.find(report.user_id).name %></td>-->
       <td><%= report.user.name %></td>
 
-      <td><%= link_to 'Show', report %></td>
-      <td><%= link_to 'Edit', edit_report_path(report) %></td>
-      <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= button_to 'Show', report %></td>
+      <td><%= button_to 'Edit', edit_report_path(report) %></td>
+      <td><%= button_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <td><%if current_user.id == report.user_id %>
             <%= "はい"%>
           <%else%>
@@ -51,4 +53,4 @@
 
 <br />
 
-<%= link_to 'New Report', new_report_path %>
+<%= button_to 'New Report', new_report_path %>

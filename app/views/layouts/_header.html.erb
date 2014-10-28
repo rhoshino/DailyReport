@@ -1,26 +1,43 @@
 #coding:utf-8
-<h2>-----------------サイトヘッダ--------------</h2>
-<%if signed_in? %>
-    サインインしていますね<br>
-    ------------------------------------------------------<br>
-    userID:[<%="#{current_user.id}"%>]
-    Admin? :[<%= "#{current_user.admin?}"%>]
-    <br>
-    ユーザーの名前[ <%="#{current_user.name}"%> ]
-    E-mail:[<%="#{current_user.email}"%>] <br>
 
-    <%= link_to "Your Report", reports_path%>
-    <%= link_to "Your Mounth Report", mounthreport_path%><!--#TODO: create -->
-    <% if current_user.admin? %>
-        <%= link_to "Report List(Admin)", reportslist_path%>
-        <%= link_to "User list(Admin)", users_path%>
+<%= stylesheet_link_tag "application", :media => "all" %>
+
+<div class = "site_header" >
+    <div class = "logo">
+        <h2>日報アプリケーション</h2>
+    </div>
+    <%if signed_in? %>
+        <div class = "log_in_user">
+            <% if Rails.env.development? %>
+                <!-- 開発時に表示 -->
+                userID:[<%="#{current_user.id}" %> ]
+                Admin:[<%="#{current_user.admin?}" %> ]
+                <br>
+            <% end%>
+            ユーザーの名前[ <%="#{current_user.name}"%> ]
+            E-mail:[<%="#{current_user.email}"%>]
+
+            <div class = "horizontal_controller">
+                <div class = "horizontal_button">
+                    <%= button_to "Create Report", reports_path%>
+                </div>
+                <div class = "horizontal_button">
+                    <%= button_to "月報", mounthreport_path%>
+                </div>
+            </div>
+
+                <% if current_user.admin? %>
+                    <%= link_to "Report List(Admin)", reportslist_path%>
+                    <%= link_to "User list(Admin)", users_path%>
+                <% end %>
+                <br>
+
+            <%= link_to "You", your_page_path%>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <br>
+        </div>
+    <% else %>
+        サインインしていませんね<br>
     <% end %>
-    <br>
-    <%= link_to "You", your_page_path%>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <br>
-------------------------------------------------------
-<% else %>
-    サインインしていませんね<br>
-<% end %>
-<hr>
+    <hr>
+</div>

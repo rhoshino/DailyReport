@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validate :multi_send_address_is_collect_format_or_null
 
   #データベースに登録前、送信先アドレスを加工する
-  #before_save :saved_send_address
+  before_save :saved_send_address
 
   def admin?
      role == "admin" #これ定数で呼び出ししたかったなあ
@@ -32,15 +32,17 @@ class User < ActiveRecord::Base
 
   #送信先アドレスの加工と保存(※バリデーション済み)
   def saved_send_address
-    #配列の初期化
-    send_address.clear
+
     #各要素ずつpush
     unless temp_text == nil
-      debugger
+      #debugger
+      #配列の初期化
+      send_address.clear
       temp_text.each_line do |line|
           send_address.push line.strip
       end
     end
+    #temp_text.clear
   end
 
 
@@ -56,7 +58,6 @@ class User < ActiveRecord::Base
   def multi_send_address_is_collect_format_or_null
     reg = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/
 
-    error_flag = false
     unless temp_text.blank?#空欄はチャック対象外
 
       #テキストエリアの内容を取得して改行で区切る
@@ -70,7 +71,7 @@ class User < ActiveRecord::Base
       address_array.each do |s|
         #debugger
         unless reg === s
-          errors.add(:temp_text , "正しくないフォーマットで書かれています。(空欄可) #{s}")
+          errors.add("正しくないフォーマットで書かれています。(空欄可) #{s}")
         end
       end
     end

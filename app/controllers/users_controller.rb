@@ -1,6 +1,6 @@
 #coding:utf-8
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  #load_and_authorize_resource
   def index
     @users = User.all
     respond_to do |format|
@@ -42,10 +42,11 @@ class UsersController < ApplicationController
   # PUT /reports/1.json
   def update
     @user = User.find(params[:id])
-    @user.saved_send_address
+    #@user.saved_send_address
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Report was successfully updated.' }
+        #format.html { redirect_to @user, notice: 'Report was successfully updated.' }
+        format.html { redirect_to your_page_path, notice: 'Report was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
