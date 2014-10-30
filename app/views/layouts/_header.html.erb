@@ -18,26 +18,31 @@
             E-mail:[<%="#{current_user.email}"%>]
 
             <div class = "horizontal_controller">
-                <div class = "horizontal_button">
-                    <%= button_to "Create Report", reports_path%>
+                <div class = "horizontal_left_button">
+                    <%= button_to "Create Report", new_report_path, method: :get%>
                 </div>
-                <div class = "horizontal_button">
+                <div class = "horizontal_left_button">
                     <%= button_to "月報", mounthreport_path%>
                 </div>
-            </div>
-
                 <% if current_user.admin? %>
                     <%= link_to "Report List(Admin)", reportslist_path%>
                     <%= link_to "User list(Admin)", users_path%>
                 <% end %>
                 <br>
+            </div>
 
-            <%= link_to "You", your_page_path%>
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-            <br>
+            <div class = "horizontal_controller">
+                <div class = "horizontal_right_button">
+                    <%= button_to "ユーザー情報", your_page_path%>
+                </div>
+                <div class = "horizontal_right_button">
+
+                    <%= button_to "Sign out", destroy_user_session_path, :method => :delete %>
+                </div>
+            </div>
         </div>
     <% else %>
-        サインインしていませんね<br>
+        サインインしてください<br>
     <% end %>
     <hr>
 </div>

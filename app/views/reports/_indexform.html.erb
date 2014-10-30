@@ -1,56 +1,62 @@
 #coding:utf-8
 <%= stylesheet_link_tag "list_page", :media => "all" %>
 
-<h1>日報のリスト</h1>
+<!-- <h1>日報のリスト</h1> -->
 
-<% if user_signed_in? %>
+<!-- <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% end %>
+<% end %> -->
 
 <% if current_user.admin? && Rails.env.development? %>
   <br>
   あなたはAdminです
 <% end %>
 
-<table class = "test1">
-  <tr>
-    <th>公開</th>
-    <th>日報ID</th>
-    <th>報告日付</th>
-    <th>タイトル</th>
-    <th>本文(これはのちのち外す)</th>
-    <th>著者ID</th>
-    <th>著者名</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th>あなた？</th>
-  </tr>
 
-  <% @reports.each do |report| %>
+<% unless @reports.length == 0%>
+  <table class = "test1">
+
     <tr>
-      <td><%= report.public_flag? ? "O" : "X"%></td>
-      <td><%= report.id%></td>
-      <td><%= report.report_date%></td>
-      <td><%= report.report_title %></td>
-      <td><%= report.report_body_text %></td>
-      <td><%= report.user_id %></td>
-      <!--<td><%= User.find(report.user_id).name %></td>-->
-      <td><%= report.user.name %></td>
-
-      <td><%= button_to 'Show', report %></td>
-      <td><%= button_to 'Edit', edit_report_path(report) %></td>
-      <td><%= button_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%if current_user.id == report.user_id %>
-            <%= "はい"%>
-          <%else%>
-             <%= "いいえ"%>
-          <%end%>
-      </td>
+      <th>公開</th>
+      <th>日報ID</th>
+      <th>報告日付</th>
+      <th>タイトル</th>
+      <th>本文(最初の10文字)</th>
+      <th>著者ID</th>
+      <th>著者名</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>あなた？</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.public_flag? ? "O" : "X"%></td>
+        <td><%= report.id%></td>
+        <td><%= report.report_date%></td>
+        <td><%= report.report_title %></td>
+        <td><%= report.report_body_text.slice(0,10) %></td>
+        <td><%= report.user_id %></td>
+        <!--<td><%= User.find(report.user_id).name %></td>-->
+        <td><%= report.user.name %></td>
+
+        <td><%= button_to 'Show', report_path(report),method: :get %></td>
+        <td><%= button_to 'Edit', edit_report_path(report),method: :get %></td>
+        <td><%= button_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%if current_user.id == report.user_id %>
+              <%= "はい"%>
+            <%else%>
+               <%= "いいえ"%>
+            <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h2> まだ日報がありません </h2>
+<% end%>
 
 <br />
 
-<%= button_to 'New Report', new_report_path %>
+<%= button_to 'Create Report', new_report_path, method: :get %>

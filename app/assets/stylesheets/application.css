@@ -41,11 +41,19 @@ div.site_footer{
 div.horizontal_controller{
     overflow: hidden;
 }
-
-div.horizontal_button{
+div.horizontal_left_button{
+    margin: 2px;
     float: left;
 }
-div.horizontal_button:after{
+div.horizontal_left_button:after{
+    content: "";
+    clear: both;
+}
+
+div.horizontal_right_button{
+    float:right;
+}
+div.horizontal_right_button:after{
     content: "";
     clear: both;
 }

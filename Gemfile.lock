@@ -30,7 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.6)
     arel (3.0.3)
-    bcrypt (3.1.7-x86-mingw32)
+    bcrypt (3.1.9-x86-mingw32)
     builder (3.0.4)
     cancan (1.6.10)
     capybara (2.1.0)
@@ -180,7 +180,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.41)
+    tzinfo (0.3.42)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)

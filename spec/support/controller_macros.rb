@@ -1,5 +1,7 @@
 #coding:utf-8
 
+include ApplicationHelper
+
 module ControllerMacros
   def login_admin
     before(:each) do

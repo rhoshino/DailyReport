@@ -8,6 +8,13 @@ require 'email_spec'
 
 require 'devise'
 
+require 'capybara/rspec'
+require 'capybara/rails'
+#require 'capybara/dsl'
+
+#include Capybara::DSL
+
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -47,4 +54,10 @@ RSpec.configure do |config|
   #Controller test
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
+
+  config.include Capybara::DSL
+end
+
+Capybara.configure do |config|
+  config.save_and_open_page_path = "tmp/test_out/"
 end

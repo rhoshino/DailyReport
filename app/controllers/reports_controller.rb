@@ -78,7 +78,7 @@ class ReportsController < ApplicationController
     respond_to do |format|
       if @report.save
 
-        ApplicationController.helpers.start_and_end_times_date_subsutiture(@report)
+        #ApplicationController.helpers.start_and_end_times_date_subsutiture(@report)
         ApplicationController.helpers.sending_report_submit(@report.user,@report)
 
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
