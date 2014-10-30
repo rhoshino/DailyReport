@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Report do
+describe "-Unit- Report" do
 
   describe "use Factory Report"do
     #本文、題名があれば有効な状態である

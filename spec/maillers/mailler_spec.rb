@@ -1,7 +1,7 @@
 #coding:utf-8
 require 'spec_helper'
 
-describe "Sending Mail" do
+describe "-Unit- Sending Mail" do
 
   it "is this mail test is able now" do
     user = FactoryGirl.build(:user)

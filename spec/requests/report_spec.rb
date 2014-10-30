@@ -2,12 +2,11 @@
 
 require 'spec_helper'
 
-describe "Admin's Report" do
+describe "-Unit- Admin's Report" do
 
   before(:all) do
     @admin = create_uniq_admin
   end
-
 
   it "Wait! Farstly,Admin is Avairable?" do
     #admin  = create_uniq_admin
@@ -26,13 +25,14 @@ describe "Admin's Report" do
       expect(page).to have_content 'あなたの日報 一覧'
     end
 
-
     it "Admin is Write Daily Report" do
       sign_up_admin(@admin)
-      within ("//div[@class='horizontal_left_button']")do
+      within("//div[@class='horizontal_controller'][1]/div[@class='horizontal_left_button'][1]")do
         click_button('Create Report')
       end
+      #日報を書く画面んいいるか?
       expect(page).to have_content 'New report'
+
     end
   end
 

@@ -5,10 +5,10 @@ include ApplicationHelper
 
 def create_uniq_admin
   user =  FactoryGirl.build(:user,
-                                name: "capybara-san",
-                                password: "capybara",
-                                email: "capybara@des.jp",
-                                role: "admin")
+                              name: "capybara-san",
+                              password: "capybara",
+                              email: "capybara@des.jp",
+                              role: "admin")
   return user
 end
 
@@ -31,4 +31,5 @@ def sign_up_admin(user)
 end
 
 def write_report_admin(user)
+
 end

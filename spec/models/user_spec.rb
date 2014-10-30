@@ -1,7 +1,7 @@
 #coding:utf-8
 require 'spec_helper'
 
-describe User do
+describe "-Unit- User" do
 
   describe "User's send_address "do
 
