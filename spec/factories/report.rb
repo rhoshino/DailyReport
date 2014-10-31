@@ -7,6 +7,5 @@ FactoryGirl.define do
     # after(:create) do |report|
     #   report.worktime << FactoryGirl.build(:worktime)
     # end
-
   end
 end

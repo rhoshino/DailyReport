@@ -132,10 +132,19 @@ describe "Report Case" do
       move_create_report_admin(@admin)
       simple_create_and_save_report_with_public(@report)
 
-      visit("report/#{@report.id}")
+
+debugger
+
+      #visit("/reports/#{@report.id}")
+      #visit("/reports/99")
+      visit("/reports")
+save_and_open_page
+
 
       expect(page).to have_content(@report.report_title)
       expect(page).to have_content(@report.report_body_text)
+
+
     end
 
 

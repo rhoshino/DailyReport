@@ -10,9 +10,8 @@ require 'devise'
 
 require 'capybara/rspec'
 require 'capybara/rails'
-#require 'capybara/dsl'
 
-#include Capybara::DSL
+require 'ruby-debug'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -59,8 +58,22 @@ RSpec.configure do |config|
 
   ActionController::Base.asset_host = "http://localhost:3000"
   #Capybara.default_driver = :selenium
+
+    # 追記ここから
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
 
 Capybara.configure do |config|
-  config.save_and_open_page_path = "tmp/test_out/"
+  #config.save_and_open_page_path = "tmp/test_out/"
 end
