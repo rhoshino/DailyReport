@@ -56,6 +56,9 @@ RSpec.configure do |config|
   config.extend ControllerMacros, :type => :controller
 
   config.include Capybara::DSL
+
+  ActionController::Base.asset_host = "http://localhost:3000"
+  #Capybara.default_driver = :selenium
 end
 
 Capybara.configure do |config|
