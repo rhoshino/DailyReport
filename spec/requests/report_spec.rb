@@ -30,7 +30,7 @@ describe "-Unit- Admin's Report" do
       within("//div[@class='horizontal_controller'][1]/div[@class='horizontal_left_button'][1]")do
         click_button('Create Report')
       end
-      #日報を書く画面んいいるか?
+      #日報を書く画面にいるか?
       expect(page).to have_content 'New report'
 
     end
